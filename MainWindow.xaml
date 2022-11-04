@@ -1,0 +1,22 @@
+﻿<Window x:Class="Organizer.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Organizer.UI"
+        xmlns:view="clr-namespace:Organizer.UI.View"
+        xmlns:converter="clr-namespace:Organizer.UI.Converter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1100">
+<Window.Resources>
+    <converter:ControlVisibility x:Key="my:ControlVisibility"/>
+</Window.Resources>
+    <Grid>
+        <view:LogUserControl Visibility="{Binding Path=VisibleControl, Converter={StaticResource my:ControlVisibility}, ConverterParameter=LogUser}"/>
+        <view:RegUserControl Visibility="{Binding Path=VisibleControl, Converter={StaticResource my:ControlVisibility}, ConverterParameter=RegUser}"/>
+        <view:RegNameUserControl Visibility="{Binding Path=VisibleControl, Converter={StaticResource my:ControlVisibility}, ConverterParameter=RegName}"/>
+        <view:AdminUserControl Visibility="{Binding Path=VisibleControl, Converter={StaticResource my:ControlVisibility}, ConverterParameter=Admin}"/>
+        <view:SimpleUserControl Visibility="{Binding Path=VisibleControl, Converter={StaticResource my:ControlVisibility}, ConverterParameter=Simple}"/>
+    </Grid>
+
+</Window>
